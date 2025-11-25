@@ -2,7 +2,7 @@
 Personal Finance Manager with Expense Prediction
 
 
-OVERVIEW
+OVERVIEW OF PROJECT
 
 This project is a command-line Personal Finance Manager built with Python. It allows users to record income and expenses, view summaries, visualize monthly spending, and predict next month’s total expense using a simple machine learning model (linear regression).
 
