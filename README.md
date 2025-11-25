@@ -2,175 +2,117 @@
 Personal Finance Manager with Expense Prediction
 
 
-OVERVIEW OF PROJECT
+Project Overview
+Personal Finance Manager is a command-line application designed to help users track their income and expenses, analyze spending patterns, and predict future expenses using machine learning. The application stores transaction data locally and provides visualization tools to better understand financial habits.
+Features
 
-This project is a command-line Personal Finance Manager built with Python. It allows users to record income and expenses, view summaries, visualize monthly spending, and predict next month’s total expense using a simple machine learning model (linear regression).
+Transaction Management: Add and categorize income and expense transactions with dates and descriptions
+Financial Summary: View overall balance, total income, and expenses broken down by category
+Transaction History: Display the most recent 10 transactions
+Data Visualization: Generate monthly expense trend charts using matplotlib
+Expense Prediction: Use linear regression to forecast next month's expenses based on historical data
+Persistent Storage: All transactions are saved to a CSV file for long-term tracking
 
-FEATURES
+Technologies Used
 
-Add income and expense transactions with date, category, description, and amount.
+Python 3.x: Core programming language
+pandas: Data manipulation and CSV file handling
+scikit-learn: Machine learning library for expense prediction
+matplotlib: Data visualization for expense trends
+datetime: Date and time handling
 
-Store all transactions in a CSV file for easy access and backup.
+Installation and Setup
+Prerequisites
+Ensure you have Python 3.6 or higher installed on your system.
+Step 1: Install Required Libraries
+Install all dependencies using pip:
+bashpip install pandas scikit-learn matplotlib
+Step 2: Download the Script
+Save the provided Python script as finance_manager.py in your desired directory.
+Step 3: Run the Application
+Navigate to the directory containing the script and run:
+bashpython finance_manager.py
+The application will automatically create a transactions.csv file in the same directory to store your data.
+How to Use
+When you launch the application, you'll see a menu with the following options:
 
-View overall summary: total income, total expense, and current balance.
+Add Transaction: Record a new income or expense entry
+View Summary: Display total income, expenses, balance, and category-wise breakdown
+View Last 10 Transactions: Show recent transaction history
+Plot Monthly Expenses: Generate a line chart showing expense trends over time
+Predict Next Month Expense: Use machine learning to forecast upcoming expenses
+Exit: Close the application
 
-View category-wise expense totals.
+Instructions for Testing
+Test Case 1: Adding Transactions
 
-Display the last 10 transactions.
+Select option 1 from the menu
+Add sample income transactions:
 
-Plot monthly expenses using a line chart.
+Date: 2025-01-15, Type: income, Category: Salary, Description: Monthly salary, Amount: 5000
 
-Train a basic regression model on past monthly expenses and predict next month’s total expense.
 
+Add sample expense transactions:
 
-PROJECT STRUCTURE
+Date: 2025-01-20, Type: expense, Category: Food, Description: Groceries, Amount: 150
+Date: 2025-02-05, Type: expense, Category: Rent, Description: Monthly rent, Amount: 1200
+Date: 2025-02-10, Type: expense, Category: Food, Description: Restaurant, Amount: 75
 
-finance_manager.py – Main Python script containing:
 
-Data initialization and CSV handling
 
-Functions for adding and viewing transactions
+Test Case 2: Viewing Summary
 
-Functions for summaries and plotting
+Select option 2 to view the financial summary
+Verify that total income, expenses, and balance are calculated correctly
+Check that expenses are grouped by category
 
-Machine learning logic for expense prediction
+Test Case 3: Viewing Transactions
 
-transactions.csv – Data file automatically created to store all transactions.
+Select option 3 to display recent transactions
+Verify that transactions appear in reverse chronological order
 
+Test Case 4: Plotting Monthly Expenses
 
-TECHNOLOGIES USED
+After adding transactions across multiple months, select option 4
+A graph window should open displaying monthly expense trends
+Close the graph window to return to the menu
 
-Python 3.x
+Test Case 5: Expense Prediction
 
-pandas – for data handling and analysis
+Add transactions for at least 3 different months
+Select option 5 to predict next month's expenses
+Review the R² score and predicted amount
+Note: Prediction accuracy improves with more historical data
 
-scikit-learn – for building the linear regression model
+Test Case 6: Data Persistence
 
-matplotlib – for plotting monthly expenses
+Add several transactions
+Exit the application (option 0)
+Restart the application
+Verify that all previous transactions are still available
 
-CSV file – as a simple data storage solution
+File Structure
+project-directory/
+│
+├── finance_manager.py      # Main application script
+└── transactions.csv         # Auto-generated data file (created on first run)
+Notes
 
+All transaction data is stored locally in transactions.csv
+The prediction model requires at least 3 months of expense data for meaningful results
+Date format must be YYYY-MM-DD (or press Enter to use today's date)
+Transaction amounts should be positive numbers
+The application uses a simple linear regression model for predictions
 
-INSTALLATION
+Future Enhancements
 
-Make sure Python 3 is installed on your system.
+Add budget setting and alerts
+Support for multiple currencies
+Export reports to PDF
+More sophisticated prediction models
+Database integration for better data management
 
-Install the required Python packages:
 
-bash
-pip install pandas scikit-learn matplotlib
-Place finance_manager.py in a folder where you want to store your project and data files.
-
-
-HOW IT WORKS
-
-When the program starts, it checks if transactions.csv exists; if not, it creates one with the required columns.
-
-The user interacts with a text-based menu to:
-
-Add income or expense entries
-
-View overall financial summary
-
-View recent transactions
-
-Plot monthly expenses
-
-Predict next month’s total expense
-
-For prediction:
-
-The program aggregates all expenses by month.
-
-Each month is converted to a numeric index.
-
-A linear regression model is trained on historical monthly totals.
-
-The model then predicts the expense for the next month’s index.
-
-
-USGAE
-
-Run the application from the terminal:
-
-bash
-python finance_manager.py
-You will see a menu like:
-
-Add transaction
-
-View summary
-
-View last 10 transactions
-
-Plot monthly expenses
-
-Predict next month expense
-
-Exit
-
-Enter the appropriate option number and follow the prompts.
-
-Adding a Transaction
-Choose option 1 (Add transaction).
-
-Enter:
-
-Date in YYYY-MM-DD format (or press Enter for today’s date)
-
-Type: income or expense
-
-Category: e.g., Food, Rent, Salary
-
-Description: a short note about the transaction
-
-Amount: numeric value
-
-Viewing Summary
-Choose option 2 (View summary).
-
-The program will display:
-
-Total income
-
-Total expense
-
-Current balance
-
-Category-wise expense totals
-
-Viewing Last 10 Transactions
-Choose option 3.
-
-The program will show the most recent 10 transactions with their details.
-
-Plotting Monthly Expenses
-Choose option 4.
-
-A line chart window will open showing total expenses per month.
-
-This helps visualize spending trends over time.
-
-Predicting Next Month’s Expense
-Choose option 5.
-
-The program will:
-
-Train a linear regression model on past monthly expense totals.
-
-Show the model’s R² score on test data (for evaluation).
-
-Display the predicted total expense for the next month.
-
-Note: At least 3 months of expense data are needed for the prediction to work meaningfully.
-
-Example Use Case
-A user records daily expenses (Food, Transport, Rent, etc.) and income (Salary, Freelancing, etc.).
-
-At the end of each month, the user checks:
-
-How much was spent in each category.
-
-The overall balance.
-
-The app plots monthly expenses and predicts the next month’s total expense, helping the user plan their budget.
+Author: Manas Gursahani
+License: MIT
+Version: 1.0.0
